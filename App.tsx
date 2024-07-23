@@ -1,16 +1,16 @@
 import React from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import RootStackNavigator from "./src/navigation/RootStackNavigator";
-
-const Stack = createNativeStackNavigator();
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 function App() {
   return (
-    <NavigationContainer>
-      <RootStackNavigator />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <RootStackNavigator />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
