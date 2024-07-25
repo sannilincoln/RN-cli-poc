@@ -1,10 +1,25 @@
-import { View, Text } from "react-native";
+import { View, Text, TextInput, KeyboardType } from "react-native";
 import React from "react";
 
-const InputField = () => {
+interface IInputField {
+  placeholder: string;
+  keyBoardtype?: KeyboardType;
+  ispassWordField?: boolean;
+}
+
+const InputField = ({
+  placeholder,
+  keyBoardtype = "default",
+  ispassWordField = false,
+}: IInputField) => {
   return (
-    <View>
-      <Text>InputField</Text>
+    <View className="border-b border-[#eaecee] mb-3">
+      <TextInput
+        placeholder={placeholder}
+        keyboardType={keyBoardtype}
+        secureTextEntry={ispassWordField}
+        className="text-base font-semibold"
+      />
     </View>
   );
 };

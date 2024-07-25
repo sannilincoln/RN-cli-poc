@@ -5,7 +5,7 @@ import { SplashScreenProps } from "../../config/navigationTypes";
 
 const SplashScreen = ({ navigation }: SplashScreenProps) => {
   setTimeout(() => {
-    navigation.navigate("SignIn");
+    navigation.replace("SignIn");
   }, 2000);
 
   return (
