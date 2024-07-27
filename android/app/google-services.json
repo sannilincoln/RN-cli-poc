@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "853861379650",
+    "project_id": "ytecommerce-c2ac9",
+    "storage_bucket": "ytecommerce-c2ac9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853861379650:android:975d59271b02048fd8c7db",
+        "android_client_info": {
+          "package_name": "com.sanniAwesomeProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853861379650-t7oqhhc5qfsraibrtpl830hg4loj7emr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sanniAwesomeProject",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "853861379650-jsh0qg6fjdjtbdub7a20q7l0ru68op80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaK-fJMOqk3r-M1eU4sBAPxaV6vi-v-SM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853861379650-jsh0qg6fjdjtbdub7a20q7l0ru68op80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

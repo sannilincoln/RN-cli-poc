@@ -5,12 +5,12 @@ interface IButton {
   style: string;
   buttonTextStyle: string;
   title: string;
-  onpress: () => void;
+  onPress: () => void;
 }
 
-const CustomButton = ({ style, title, buttonTextStyle, onpress }: IButton) => {
+const CustomButton = ({ style, title, buttonTextStyle, onPress }: IButton) => {
   return (
-    <TouchableOpacity onPress={() => onpress()}>
+    <TouchableOpacity onPress={() => onPress()}>
       <View className={`${style}`}>
         <Text className={`${buttonTextStyle} text-center`}>{title}</Text>
       </View>
