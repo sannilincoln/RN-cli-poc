@@ -1,11 +1,16 @@
-import { View, Text, Image, StatusBar } from "react-native";
-import React from "react";
+import { View, Text, Image, StatusBar, Alert } from "react-native";
+import React, { useState } from "react";
 import FullRoundButton from "../../componenets/FullRoundButton";
 import CustomButton from "../../componenets/CustomButton";
-import { SignInScreenProps } from "../../config/navigationTypes";
+import { SignInScreenProps } from "../../config/types/navigationTypes";
 import { _signInWithGoogle } from "../../config/firebase/GoogleSignIn";
+import LoadingSpinner from "../../componenets/LoadingSpinner";
+import { axiosClient } from "../../config/api";
+import { IGoogleUSerData } from "../../config/types/googleData";
 
 const SignIn = ({ navigation }: SignInScreenProps) => {
+  const [loading, setLoading] = useState(false);
+
   const googleSignin = async () => {
     _signInWithGoogle().then((data) => {
       if (!data) {
@@ -13,12 +18,30 @@ const SignIn = ({ navigation }: SignInScreenProps) => {
         return;
       }
       console.log("=> success", data);
+      // _sign_in_api(data);
     });
+  };
+
+  const _sign_in_api = async (dataFromGoogle: IGoogleUSerData) => {
+    setLoading(true);
+    const { data, status } = await axiosClient.post(
+      "api endpoint",
+      dataFromGoogle
+    );
+    setLoading(false);
+    if (status == 200) {
+      navigation.navigate("HomeScreen");
+    } else {
+      Alert.alert(data.message);
+    }
   };
 
   return (
     <View className="flex-1 bg-white ">
       <StatusBar backgroundColor={"#fff"} />
+
+      <LoadingSpinner isVisible={loading} />
+
       <View className="flex-[0.5]">
         <Image
           source={require("../../../assets/ecomsign.jpeg")}

@@ -4,6 +4,7 @@ export type RootStackParamList = {
   Splash: undefined;
   SignIn: undefined;
   SignUp: undefined;
+  HomeScreen: undefined;
 };
 
 export type SplashScreenProps = NativeStackScreenProps<
@@ -17,4 +18,8 @@ export type SignInScreenProps = NativeStackScreenProps<
 export type SignUpScreenProps = NativeStackScreenProps<
   RootStackParamList,
   "SignUp"
+>;
+export type HomeScreenpScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  "HomeScreen"
 >;
