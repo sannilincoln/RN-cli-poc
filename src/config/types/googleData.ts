@@ -6,10 +6,10 @@ export interface IGoogleUSerData {
 }
 
 export interface User {
-  email: string;
-  familyName: string;
-  givenName: string;
-  id: string;
-  name: string;
-  photo: string;
+  email: string | null;
+  familyName: string | null;
+  givenName: string | null;
+  id: string | null;
+  name: string | null;
+  photo: string | null;
 }

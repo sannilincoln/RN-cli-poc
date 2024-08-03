@@ -7,6 +7,7 @@ import { _signInWithGoogle } from "../../config/firebase/GoogleSignIn";
 import LoadingSpinner from "../../componenets/LoadingSpinner";
 import { axiosClient } from "../../config/api";
 import { IGoogleUSerData } from "../../config/types/googleData";
+import { _storeIntoAsyncStorage } from "../../config/storage";
 
 const SignIn = ({ navigation }: SignInScreenProps) => {
   const [loading, setLoading] = useState(false);
@@ -18,27 +19,32 @@ const SignIn = ({ navigation }: SignInScreenProps) => {
         return;
       }
       console.log("=> success", data);
+      _storeIntoAsyncStorage("user", data?.user);
+      // navigation.navigate("HomeScreen");
       // _sign_in_api(data);
     });
   };
 
-  const _sign_in_api = async (dataFromGoogle: IGoogleUSerData) => {
-    setLoading(true);
-    const { data, status } = await axiosClient.post(
-      "api endpoint",
-      dataFromGoogle
-    );
-    setLoading(false);
-    if (status == 200) {
-      navigation.navigate("HomeScreen");
-    } else {
-      Alert.alert(data.message);
-    }
-  };
+  // const _sign_in_api = async (dataFromGoogle: IGoogleUSerData) => {
+  //   setLoading(true);
+  //   const { data, status } = await axiosClient.post(
+  //     "api endpoint",
+  //     dataFromGoogle
+  //   );
+  //   setLoading(false);
+  //   if (status == 200) {
+  //     //toast notification
+  //     //save to async storage
+  //     await _storeIntoAsyncStorage("user", data);
+  //     // navigation.navigate("HomeScreen");
+  //   } else {
+  //     Alert.alert(data.message);
+  //   }
+  // };
 
   return (
     <View className="flex-1 bg-white ">
-      <StatusBar backgroundColor={"#fff"} />
+      <StatusBar backgroundColor={"#eaeaea"} />
 
       <LoadingSpinner isVisible={loading} />
 
